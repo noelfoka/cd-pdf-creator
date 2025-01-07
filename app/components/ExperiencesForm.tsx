@@ -46,21 +46,35 @@ const ExperiencesForm: React.FC<Props> = ({ experience, setExperience }) => {
       <div className="flex justify-between">
         <input
           type="text"
-          value={newExperience.jobTitle}
-          onFocus={(e) => e.target.type = "Date"}
-          onChange={(e) => handleNewExperience(e, "jobTitle")}
-          placeholder="Titre du job"
+          value={newExperience.startDate}
+          onFocus={(e) => e.target.type = "date"}
+          onBlur={(e) => {
+            if (!e.target.value) e.target.type = "text";
+          }}
+          onChange={(e) => handleNewExperience(e, "startDate")}
+          placeholder="Date de debut"
           className="input input-bordered w-full"
         />
 
         <input
           type="text"
-          value={newExperience.companyName}
-          onChange={(e) => handleNewExperience(e, "companyName")}
-          placeholder="Nom de l'entreprise"
+          value={newExperience.endDate}
+          onFocus={(e) => e.target.type = "date"}
+          onBlur={(e) => {
+            if (!e.target.value) e.target.type = "text";
+          }}
+          onChange={(e) => handleNewExperience(e, "endDate")}
+          placeholder="Date de fin"
           className="input input-bordered w-full ml-2"
         />
       </div>
+
+      <textarea
+        placeholder="Description du poste"
+        value={newExperience.description}
+        className="input input-bordered w-full"
+        onChange={(e) => handleNewExperience(e, "description")}
+      ></textarea>
 
     </div>
   );
