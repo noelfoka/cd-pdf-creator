@@ -22,7 +22,7 @@ export default function Home() {
 
               <div className="flex justify-between items-center">
                 <h1 className="badge badge-primary badge-outline">Qui êtes vous ?</h1>
-                <button>
+                <button className="btn btn-primary btn-sm">
                 <RotateCw className="w-4" />
                 </button>
               </div>
