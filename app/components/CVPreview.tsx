@@ -90,11 +90,15 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience }
 
             <ul className="steps steps-vertical space-y-3">
               {experience.map((exp, index) => (
-                <li key={exp.id} className="step step-primary">
+                <li key={index} className="step step-primary">
                   <div className="text-left">
-                    <h2>
-                    <BriefcaseBusiness />
+                    <h2 className="flex text-md uppercase font-bold">
+                    <BriefcaseBusiness className="w-5" />
+                    <span className="ml-2">{exp.jobTitle}</span>
                     </h2>
+                    <div className="text-sm my-2">
+                      <span>{exp.companyName}</span>
+                    </div>
                   </div>
                 </li>
               ))
