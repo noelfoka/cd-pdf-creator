@@ -23,7 +23,7 @@ export default function Home() {
             <div className="mb-4 flex justify-between items-center">
               <h1 className="text-2xl font-bold italic">
                 CV
-                <span className="text-primary">Builder</span>
+                <span className="text-primary">Ppros</span>
               </h1>
               <button className="btn btn-primary">
                 Prévisualisez
