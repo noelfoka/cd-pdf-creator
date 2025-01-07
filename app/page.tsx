@@ -1,5 +1,6 @@
 import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
+import PersonalDetailsForm from "./components/PersonalDetailsForm";
 
 export default function Home() {
   return (
@@ -26,6 +27,11 @@ export default function Home() {
                 <RotateCw className="w-4" />
                 </button>
               </div>
+              <PersonalDetailsForm
+                personalDetails={}
+                setPersonalDetails={}
+                setFile={}
+              />
 
             </div>
           </div>
