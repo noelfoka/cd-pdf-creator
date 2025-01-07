@@ -53,11 +53,21 @@ export default function Home() {
     "sunset",
   ];
 
+  const handlePersonalDetails = () =>
+    setPersonalDetails({
+      fullName: "",
+      email: "",
+      phone: "",
+      address: "",
+      photoUrl: "",
+      description: "",
+      postSeeking: "",
+    });
+
   return (
     <div>
       <div className="hidden lg:block">
         <section className="flex items-center h-screen">
-          
           <div className="w-1/3 h-full bg-base-200 p-10 scroolable no-scrollbar">
             <div className="mb-4 flex justify-between items-center">
               <h1 className="text-2xl font-bold italic">
@@ -75,7 +85,10 @@ export default function Home() {
                 <h1 className="badge badge-primary badge-outline">
                   Qui êtes vous ?
                 </h1>
-                <button className="btn btn-primary btn-sm">
+                <button
+                  className="btn btn-primary btn-sm"
+                  onClick={handlePersonalDetails}
+                >
                   <RotateCw className="w-4" />
                 </button>
               </div>
@@ -84,6 +97,18 @@ export default function Home() {
                 setPersonalDetails={setPersonalDetails}
                 setFile={setFile}
               />
+
+              <div className="flex justify-between items-center">
+                <h1 className="badge badge-primary badge-outline">
+                  Expériences
+                </h1>
+                <button
+                  className="btn btn-primary btn-sm"
+                  // onClick={handlePersonalDetails}
+                >
+                  <RotateCw className="w-4" />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -112,9 +137,12 @@ export default function Home() {
               ))}
             </select>
 
-            <div className="flex justify-center items-center" style={{ 
-              transform: `scale(${zoom / 200})`,
-             }}>
+            <div
+              className="flex justify-center items-center"
+              style={{
+                transform: `scale(${zoom / 200})`,
+              }}
+            >
               <CVPreview
                 personalDetails={personalDetails}
                 file={file}
