@@ -9,11 +9,48 @@ import { personalDetailsPreset } from "@/presets";
 import CVPreview from "./components/CVPreview";
 
 export default function Home() {
-
   // Variables d'etat
-  const [personalDetails, setPersonalDetails] = useState<PersonalDetails>(personalDetailsPreset);
+  const [personalDetails, setPersonalDetails] = useState<PersonalDetails>(
+    personalDetailsPreset
+  );
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [file, setFile] = useState<File | null>(null);
+  const [theme, setTheme] = useState<string>("cupcake");
+
+  const themes = [
+    "light",
+    "dark",
+    "cupcake",
+    "bumblebee",
+    "emerald",
+    "corporate",
+    "synthwave",
+    "retro",
+    "cyberpunk",
+    "valentine",
+    "halloween",
+    "garden",
+    "forest",
+    "aqua",
+    "lofi",
+    "pastel",
+    "fantasy",
+    "wireframe",
+    "black",
+    "luxury",
+    "dracula",
+    "cmyk",
+    "autumn",
+    "business",
+    "acid",
+    "lemonade",
+    "night",
+    "coffee",
+    "winter",
+    "dim",
+    "nord",
+    "sunset",
+  ];
 
   return (
     <div>
@@ -32,11 +69,12 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-6 rounded-lg">
-
               <div className="flex justify-between items-center">
-                <h1 className="badge badge-primary badge-outline">Qui êtes vous ?</h1>
+                <h1 className="badge badge-primary badge-outline">
+                  Qui êtes vous ?
+                </h1>
                 <button className="btn btn-primary btn-sm">
-                <RotateCw className="w-4" />
+                  <RotateCw className="w-4" />
                 </button>
               </div>
               <PersonalDetailsForm
@@ -44,13 +82,28 @@ export default function Home() {
                 setPersonalDetails={setPersonalDetails}
                 setFile={setFile}
               />
-
             </div>
           </div>
 
           <div className='w-2/3 h-full bg-base-100 bg-[url("/file.svg")] bg-cover bg-center scroolable-preview'>
+            <select
+              value={theme}
+              onChange={(e) => setTheme(e.target.value)}
+              className="select select-bordered fixed z-[9999] select-sm top-12 right-5"
+            >
+              {themes.map((themeName) => (
+                <option key={themeName} value={themeName}>
+                  {themeName}
+                </option>
+              ))}
+            </select>
+
             <div className="flex justify-center items-center">
-              <CVPreview personalDetails={personalDetails} file={file} />
+              <CVPreview
+                personalDetails={personalDetails}
+                file={file}
+                theme={theme}
+              />
             </div>
           </div>
         </section>
