@@ -1,8 +1,15 @@
+import { PersonalDetails } from '@/type';
 import React from 'react'
 
-const PersonalDetailsForm = () => {
+type Props = {
+  personalDetails: PersonalDetails;
+  setPersonalDetails: (pd: PersonalDetails) => void;
+  setFile: (file: File | null) => void;
+}
+
+const PersonalDetailsForm: React.FC<Props> = () => {
   return (
-    <div>PersonalDetailsForm</div>
+    <div></div>
   )
 }
 
