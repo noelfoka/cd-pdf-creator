@@ -50,7 +50,7 @@ export default function Home() {
 
           <div className='w-2/3 h-full bg-base-100 bg-[url("/file.svg")] bg-cover bg-center scroolable-preview'>
             <div className="flex justify-center items-center">
-              <CVPreview />
+              <CVPreview personalDetails={personalDetails} file={file} />
             </div>
           </div>
         </section>

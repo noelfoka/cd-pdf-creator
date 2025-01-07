@@ -8,7 +8,11 @@ type Props = {
 
 const CVPreview: React.FC<Props> = ({personalDetails, file}) => {
   return (
-    <div>CVPreview</div>
+    <div className={`flex p-16 w-[950px] h-[1200px] shadow-lg`}>
+
+      <div className='flex flex-col w-1/3'></div>
+
+    </div>
   )
 }
 
