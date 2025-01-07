@@ -1,8 +1,14 @@
 import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
+import { useState } from "react";
+import { PersonalDetails } from "@/type";
 
 export default function Home() {
+
+  // Variables d'etat
+  const [personalDetails, setPersonalDetails] = useState<PersonalDetails>();
+
   return (
     <div>
       <div className="hidden lg:block">

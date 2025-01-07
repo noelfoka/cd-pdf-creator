@@ -7,7 +7,7 @@ type Props = {
   setFile: (file: File | null) => void;
 }
 
-const PersonalDetailsForm: React.FC<Props> = () => {
+const PersonalDetailsForm: React.FC<Props> = ({ personalDetails, setPersonalDetails, setFile }) => {
   return (
     <div></div>
   )
