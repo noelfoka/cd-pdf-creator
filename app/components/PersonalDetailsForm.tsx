@@ -18,6 +18,14 @@ const PersonalDetailsForm: React.FC<Props> = ({
   ) => {
     setPersonalDetails({ ...personalDetails, [field]: e.target.value });
   };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <input
@@ -57,9 +65,24 @@ const PersonalDetailsForm: React.FC<Props> = ({
       <input
         type="file"
         accept="image/*"
-        className="file-input file-input-bordered w-full"
-        //onChange={(e) => handleChange(e, "photoUrl")}
+        className="file-input file-input-bordered file-input-primary w-full"
+        onChange={handleFileChange}
       />
+
+      <input
+        type="text"
+        placeholder="Poste recherché"
+        value={personalDetails.postSeeking}
+        className="input input-bordered w-full"
+        onChange={(e) => handleChange(e, "postSeeking")}
+      />
+
+      <textarea
+        placeholder="Description de la personne"
+        value={personalDetails.description}
+        className="input input-bordered w-full"
+        onChange={(e) => handleChange(e, "description")}
+      ></textarea>
     </div>
   );
 };
