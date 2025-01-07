@@ -3,7 +3,7 @@
 import { Experience, PersonalDetails } from "@/type";
 import React from "react";
 import Image from "next/image";
-import { Mail, MapPinCheckInside, Phone } from "lucide-react";
+import { BriefcaseBusiness, Mail, MapPinCheckInside, Phone } from "lucide-react";
 
 type Props = {
   personalDetails: PersonalDetails;
@@ -90,7 +90,13 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience }
 
             <ul className="steps steps-vertical space-y-3">
               {experience.map((exp, index) => (
-                <div>dd</div>
+                <li key={exp.id} className="step step-primary">
+                  <div className="text-left">
+                    <h2>
+                    <BriefcaseBusiness />
+                    </h2>
+                  </div>
+                </li>
               ))
               }
             </ul>
