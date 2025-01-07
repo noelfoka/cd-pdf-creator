@@ -85,7 +85,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='w-2/3 h-full bg-base-100 bg-[url("/file.svg")] bg-cover bg-center scroolable-preview'>
+          <div className='w-2/3 h-full bg-base-100 bg-[url("/file.svg")] bg-cover bg-center scroolable-preview relative'>
+
+          <div className="flex justify-center items-center fixed z-[9999] top-5 right-5"></div>
+
             <select
               value={theme}
               onChange={(e) => setTheme(e.target.value)}
