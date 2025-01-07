@@ -1,3 +1,4 @@
+import { Eye } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -11,7 +12,10 @@ export default function Home() {
                 CV
                 <span className="text-primary">Builder</span>
               </h1>
-              <button className="btn btn-primary">Prévisualisez</button>
+              <button className="btn btn-primary">
+                Prévisualisez
+                <Eye className="w-4" />
+              </button>
             </div>
 
             <div></div>
