@@ -6,6 +6,7 @@ import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import { useState } from "react";
 import { PersonalDetails } from "@/type";
 import { personalDetailsPreset } from "@/presets";
+import CVPreview from "./components/CVPreview";
 
 export default function Home() {
 
@@ -48,7 +49,9 @@ export default function Home() {
           </div>
 
           <div className='w-2/3 h-full bg-base-100 bg-[url("/file.svg")] bg-cover bg-center scroolable-preview'>
-            Test
+            <div className="flex justify-center items-center">
+              <CVPreview />
+            </div>
           </div>
         </section>
       </div>
