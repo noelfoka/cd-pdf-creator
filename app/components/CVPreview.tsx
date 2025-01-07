@@ -12,6 +12,12 @@ type Props = {
   experience: Experience[];
 };
 
+function formatDate (dateString: string): string {
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = {day: "2-digit", month: "short", year: "numeric"};
+  return date.toLocaleDateString("fr-FR", options);
+}
+
 const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience }) => {
   return (
     <div className={`flex p-16 w-[950px] h-[1200px] shadow-lg`} data-theme={theme}>
@@ -97,7 +103,7 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience }
                     <span className="ml-2">{exp.jobTitle}</span>
                     </h2>
                     <div className="text-sm my-2">
-                      <span>{exp.companyName}</span>
+                      <span className="badge badge-primary">{exp.companyName}</span>
                     </div>
                   </div>
                 </li>
