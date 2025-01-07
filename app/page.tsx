@@ -4,9 +4,10 @@ import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import { useState } from "react";
-import { PersonalDetails } from "@/type";
-import { personalDetailsPreset } from "@/presets";
+import { Experience, PersonalDetails } from "@/type";
+import { experiencesPreset, personalDetailsPreset } from "@/presets";
 import CVPreview from "./components/CVPreview";
+import ExperiencesForm from "./components/ExperiencesForm";
 
 export default function Home() {
   // Variables d'etat
@@ -17,6 +18,7 @@ export default function Home() {
   const [file, setFile] = useState<File | null>(null);
   const [theme, setTheme] = useState<string>("cupcake");
   const [zoom, setZoom] = useState<number>(163);
+  const [experience, setExperience] = useState<Experience[]>(experiencesPreset);
 
   const themes = [
     "light",
@@ -109,6 +111,12 @@ export default function Home() {
                   <RotateCw className="w-4" />
                 </button>
               </div>
+
+              <ExperiencesForm
+                experience={experience}
+                setExperience={setExperience}
+              />
+
             </div>
           </div>
 

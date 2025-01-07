@@ -1,6 +1,12 @@
+import { Experience } from '@/type';
 import React from 'react'
 
-const ExperiencesForm = () => {
+type Props = {
+  experience: Experience[];
+  setExperience: (experience: Experience[]) => void;
+};
+
+const ExperiencesForm: React.FC<Props> = ({ experience, setExperience }) => {
   return (
     <div>ExperiencesForm</div>
   )
