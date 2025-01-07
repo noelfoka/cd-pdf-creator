@@ -104,7 +104,9 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience }
                     </h2>
                     <div className="text-sm my-2">
                       <span className="badge badge-primary">{exp.companyName}</span>
+                      <span className="italic ml-2">{formatDate(exp.startDate)} au {formatDate(exp.endDate)}</span>
                     </div>
+                    <p className="text-sm">{exp.description}</p>
                   </div>
                 </li>
               ))
