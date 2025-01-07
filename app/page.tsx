@@ -1,4 +1,4 @@
-import { Eye } from "lucide-react";
+import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -18,7 +18,16 @@ export default function Home() {
               </button>
             </div>
 
-            <div></div>
+            <div className="flex flex-col gap-6 rounded-lg">
+
+              <div className="flex justify-between items-center">
+                <h1 className="badge badge-primary badge-outline">Qui êtes vous ?</h1>
+                <button>
+                <RotateCw className="w-4" />
+                </button>
+              </div>
+
+            </div>
           </div>
 
           <div className='w-2/3 h-full bg-base-100 bg-[url("/file.svg")] bg-cover bg-center scroolable-preview'>
