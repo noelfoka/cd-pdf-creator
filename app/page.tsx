@@ -66,6 +66,8 @@ export default function Home() {
       postSeeking: "",
     });
 
+    const handleRestExperience = () => setExperience([]);
+
   return (
     <div>
       <div className="hidden lg:block">
@@ -107,7 +109,7 @@ export default function Home() {
                 </h1>
                 <button
                   className="btn btn-primary btn-sm"
-                  // onClick={handlePersonalDetails}
+                  onClick={handleRestExperience}
                 >
                   <RotateCw className="w-4" />
                 </button>
