@@ -75,9 +75,9 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file }) => {
 
       <div className="w-2/3 ml-8">
         <div className="w-full flex flex-col space-y-4">
-          <h1>{personalDetails.fullName}</h1>
-          <h2>{personalDetails.postSeeking}</h2>
-          <p>{personalDetails.description}</p>
+          <h1 className="uppercase text-xl">{personalDetails.fullName}</h1>
+          <h2 className="uppercase text-5xl text-primary font-bold">{personalDetails.postSeeking}</h2>
+          <p className="break-all w-full text-sm">{personalDetails.description}</p>
         </div>
       </div>
     </div>
