@@ -1,6 +1,6 @@
 "use client";
 
-import { PersonalDetails } from "@/type";
+import { Experience, PersonalDetails } from "@/type";
 import React from "react";
 import Image from "next/image";
 import { Mail, MapPinCheckInside, Phone } from "lucide-react";
@@ -9,9 +9,10 @@ type Props = {
   personalDetails: PersonalDetails;
   file: File | null;
   theme: string;
+  experience: Experience[];
 };
 
-const CVPreview: React.FC<Props> = ({ personalDetails, file, theme }) => {
+const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience }) => {
   return (
     <div className={`flex p-16 w-[950px] h-[1200px] shadow-lg`} data-theme={theme}>
       <div className="flex flex-col w-1/3">
@@ -80,6 +81,21 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme }) => {
           <h2 className="uppercase text-5xl text-primary font-bold">{personalDetails.postSeeking}</h2>
           <p className="break-all w-full text-sm">{personalDetails.description}</p>
         </div>
+
+        <section
+          className="w-full h-fit p-5"
+        >
+          <div>
+            <h1 className="uppercase font-bold mb-2">Expériences</h1>
+
+            <ul className="steps steps-vertical space-y-3">
+              {experience.map((exp, index) => (
+                <div>dd</div>
+              ))
+              }
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   );

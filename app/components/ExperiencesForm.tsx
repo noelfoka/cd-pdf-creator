@@ -1,4 +1,5 @@
 import { Experience } from "@/type";
+import { Plus } from "lucide-react";
 import React, { useState } from "react";
 
 type Props = {
@@ -22,60 +23,76 @@ const ExperiencesForm: React.FC<Props> = ({ experience, setExperience }) => {
     setNewExperience({ ...newExperience, [field]: e.target.value });
   };
 
+  const handleAddExperience = () => {
+    setExperience([...experience, newExperience]);
+    setNewExperience({
+      jobTitle: "",
+      companyName: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    });
+  };
+
   return (
-    <div className="flex flex-col gap-4">
+    <div>
+      <div className="flex flex-col gap-4">
+        <div className="flex justify-between">
+          <input
+            type="text"
+            value={newExperience.jobTitle}
+            onChange={(e) => handleNewExperience(e, "jobTitle")}
+            placeholder="Titre du job"
+            className="input input-bordered w-full"
+          />
 
-      <div className="flex justify-between">
-        <input
-          type="text"
-          value={newExperience.jobTitle}
-          onChange={(e) => handleNewExperience(e, "jobTitle")}
-          placeholder="Titre du job"
+          <input
+            type="text"
+            value={newExperience.companyName}
+            onChange={(e) => handleNewExperience(e, "companyName")}
+            placeholder="Nom de l'entreprise"
+            className="input input-bordered w-full ml-2"
+          />
+        </div>
+
+        <div className="flex justify-between">
+          <input
+            type="text"
+            value={newExperience.startDate}
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => {
+              if (!e.target.value) e.target.type = "text";
+            }}
+            onChange={(e) => handleNewExperience(e, "startDate")}
+            placeholder="Date de debut"
+            className="input input-bordered w-full"
+          />
+
+          <input
+            type="text"
+            value={newExperience.endDate}
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => {
+              if (!e.target.value) e.target.type = "text";
+            }}
+            onChange={(e) => handleNewExperience(e, "endDate")}
+            placeholder="Date de fin"
+            className="input input-bordered w-full ml-2"
+          />
+        </div>
+
+        <textarea
+          placeholder="Description du poste"
+          value={newExperience.description}
           className="input input-bordered w-full"
-        />
-
-        <input
-          type="text"
-          value={newExperience.companyName}
-          onChange={(e) => handleNewExperience(e, "companyName")}
-          placeholder="Nom de l'entreprise"
-          className="input input-bordered w-full ml-2"
-        />
+          onChange={(e) => handleNewExperience(e, "description")}
+        ></textarea>
       </div>
 
-      <div className="flex justify-between">
-        <input
-          type="text"
-          value={newExperience.startDate}
-          onFocus={(e) => e.target.type = "date"}
-          onBlur={(e) => {
-            if (!e.target.value) e.target.type = "text";
-          }}
-          onChange={(e) => handleNewExperience(e, "startDate")}
-          placeholder="Date de debut"
-          className="input input-bordered w-full"
-        />
-
-        <input
-          type="text"
-          value={newExperience.endDate}
-          onFocus={(e) => e.target.type = "date"}
-          onBlur={(e) => {
-            if (!e.target.value) e.target.type = "text";
-          }}
-          onChange={(e) => handleNewExperience(e, "endDate")}
-          placeholder="Date de fin"
-          className="input input-bordered w-full ml-2"
-        />
-      </div>
-
-      <textarea
-        placeholder="Description du poste"
-        value={newExperience.description}
-        className="input input-bordered w-full"
-        onChange={(e) => handleNewExperience(e, "description")}
-      ></textarea>
-
+      <button className="btn btn-primary mt-4" onClick={handleAddExperience}>
+        Ajouter
+        <Plus className="w-4" />
+      </button>
     </div>
   );
 };

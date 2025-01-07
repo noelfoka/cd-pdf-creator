@@ -70,6 +70,7 @@ export default function Home() {
     <div>
       <div className="hidden lg:block">
         <section className="flex items-center h-screen">
+
           <div className="w-1/3 h-full bg-base-200 p-10 scroolable no-scrollbar">
             <div className="mb-4 flex justify-between items-center">
               <h1 className="text-2xl font-bold italic">
@@ -155,6 +156,7 @@ export default function Home() {
                 personalDetails={personalDetails}
                 file={file}
                 theme={theme}
+                experience={experience}
               />
             </div>
           </div>
