@@ -1,13 +1,18 @@
+"use client";
+
 import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import { useState } from "react";
 import { PersonalDetails } from "@/type";
+import { personalDetailsPreset } from "@/presets";
 
 export default function Home() {
 
   // Variables d'etat
-  const [personalDetails, setPersonalDetails] = useState<PersonalDetails>();
+  const [personalDetails, setPersonalDetails] = useState<PersonalDetails>(personalDetailsPreset);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [file, setFile] = useState<File | null>(null);
 
   return (
     <div>
@@ -34,9 +39,9 @@ export default function Home() {
                 </button>
               </div>
               <PersonalDetailsForm
-                personalDetails={}
-                setPersonalDetails={}
-                setFile={}
+                personalDetails={personalDetails}
+                setPersonalDetails={setPersonalDetails}
+                setFile={setFile}
               />
 
             </div>
