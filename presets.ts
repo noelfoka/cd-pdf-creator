@@ -67,15 +67,6 @@ export const certificationPreset: Certification[] = [
     endDate: '2018-06-01',
     credential: 'développement mobile',
     description: 'Spécialisation en développement web et bases de données.'
-  },
-  {
-    id: 'uuid-13',
-    name: 'développement backend',
-    organization: 'Edu',
-    startDate: '2015-09-01',
-    endDate: '2018-06-01',
-    credential: 'développement backend',
-    description: 'Spécialisation en développement web et bases de données.'
   }
 ]
 
