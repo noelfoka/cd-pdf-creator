@@ -3,8 +3,14 @@
 import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
-import { useState } from "react";
-import { Certification, Education, Experience, Language, PersonalDetails } from "@/type";
+import { useEffect, useState } from "react";
+import {
+  Certification,
+  Education,
+  Experience,
+  Language,
+  PersonalDetails,
+} from "@/type";
 import {
   certificationPreset,
   educationsPreset,
@@ -31,7 +37,17 @@ export default function Home() {
   const [education, setEducation] = useState<Education[]>(educationsPreset);
   const [certification, setCertification] =
     useState<Certification[]>(certificationPreset);
-    const [language, setLanguage] = useState<Language[]>(languagesPreset);
+  const [language, setLanguage] = useState<Language[]>(languagesPreset);
+
+  useEffect(() => {
+    const defaulImageUrl = "/photo1.jpg";
+    fetch(defaulImageUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const defaultFile = new File([blob], "photo1.jpg");
+        setFile(defaultFile);
+      });
+  }, []);
 
   const themes = [
     "light",
@@ -168,9 +184,7 @@ export default function Home() {
               />
 
               <div className="flex justify-between items-center">
-                <h1 className="badge badge-primary badge-outline">
-                  Langues
-                </h1>
+                <h1 className="badge badge-primary badge-outline">Langues</h1>
                 <button
                   className="btn btn-primary btn-sm"
                   onClick={handleRestLanguage}
