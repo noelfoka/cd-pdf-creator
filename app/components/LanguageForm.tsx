@@ -1,4 +1,5 @@
 import { Language } from '@/type';
+import { Plus } from 'lucide-react';
 import React, { useState } from 'react'
 
 type Props = {
@@ -42,7 +43,17 @@ const LanguageForm: React.FC<Props> = ({ language, setLanguage }) => {
             value={newLanguage.proficiency}
             onChange={(e) => handleNewLanguage(e, "proficiency")}
             className="select select-bordered w-full"
-          ></select>
+          >
+            <option value="">Selectionnez la maitrise</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermédiaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+          </select>
+
+          <button className="btn btn-primary mt-4" onClick={handleAddLanguage}>
+        Ajouter
+        <Plus className="w-4" />
+      </button>
     </div>
   )
 }
