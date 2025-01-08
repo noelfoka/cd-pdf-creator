@@ -1,9 +1,23 @@
 "use client";
 
-import { Certification, Education, Experience, Language, PersonalDetails } from "@/type";
+import {
+  Certification,
+  Education,
+  Experience,
+  Language,
+  PersonalDetails,
+} from "@/type";
 import React from "react";
 import Image from "next/image";
-import { BookOpenCheck, BriefcaseBusiness, GraduationCap, Mail, MapPinCheckInside, Phone, Star } from "lucide-react";
+import {
+  BookOpenCheck,
+  BriefcaseBusiness,
+  GraduationCap,
+  Mail,
+  MapPinCheckInside,
+  Phone,
+  Star,
+} from "lucide-react";
 
 type Props = {
   personalDetails: PersonalDetails;
@@ -15,42 +29,62 @@ type Props = {
   language: Language[];
 };
 
-function formatDate (dateString: string): string {
+function formatDate(dateString: string): string {
   const date = new Date(dateString);
-  const options: Intl.DateTimeFormatOptions = {day: "2-digit", month: "short", year: "numeric"};
+  const options: Intl.DateTimeFormatOptions = {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  };
   return date.toLocaleDateString("fr-FR", options);
 }
 
 const getStarRating = (proficiency: string) => {
   let filledStars = 0;
   const maxStars = 5;
+
   switch (proficiency) {
     case "Débutant":
-      return filledStars = 1;
+      filledStars = 1;
+      break;
     case "Intermédiaire":
-      return filledStars = 3;
+      filledStars = 3;
+      break;
     case "Avancé":
-      return filledStars = 5;
+      filledStars = 5;
+      break;
     default:
-      return filledStars = 0;
-
-      return (
-        <>
-          {Array.from({length: filledStars}, (_, index) => (
-            <Star key={index} className="text-primary" />
-          ))}
-          {Array.from({length: maxStars - filledStars}, (_, index) => (
-            <Star key={index + filledStars} className="text-gray-300" />
-          ))}
-        </>
-      )
+      filledStars = 0;
+      break;
   }
-}
 
-const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, education, certification, language }) => {
   return (
-    <div className={`flex p-16 w-[950px] h-[1200px] shadow-lg`} data-theme={theme}>
+    <>
+      {Array.from({ length: filledStars }, (_, index) => (
+        <Star key={index} className="text-primary" />
+      ))}
+      {Array.from({ length: maxStars - filledStars }, (_, index) => (
+        <Star key={index + filledStars} className="text-gray-300" />
+      ))}
+    </>
+  );
+};
 
+
+const CVPreview: React.FC<Props> = ({
+  personalDetails,
+  file,
+  theme,
+  experience,
+  education,
+  certification,
+  language,
+}) => {
+  return (
+    <div
+      className={`flex p-16 w-[950px] h-[1200px] shadow-lg`}
+      data-theme={theme}
+    >
       <div className="flex flex-col w-1/3">
         <div className="h-80 rounded-full border-8 overflow-hidden border-primary">
           {file && (
@@ -113,28 +147,33 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, 
             <h1 className="uppercase font-bold mb-2">Langues</h1>
 
             <div className="flex flex-col">
-              {language.map((lang) => (
-                <div key={lang.id} className="flex justify-between">
-                  <span className="text-sm">{lang.language}</span>
-                  <div className="text-sm">{lang.proficiency}</div>
+              {language.map((lang, index) => (
+                <div key={index}>
+                  <span className="text-sm">
+                    {lang.language}
+                  </span>
+                  <div>
+                    {getStarRating(lang.proficiency)}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-
       </div>
 
       <div className="w-2/3 ml-8">
         <div className="w-full flex flex-col space-y-4">
           <h1 className="uppercase text-xl">{personalDetails.fullName}</h1>
-          <h2 className="uppercase text-5xl text-primary font-bold">{personalDetails.postSeeking}</h2>
-          <p className="break-all w-full text-sm">{personalDetails.description}</p>
+          <h2 className="uppercase text-5xl text-primary font-bold">
+            {personalDetails.postSeeking}
+          </h2>
+          <p className="break-all w-full text-sm">
+            {personalDetails.description}
+          </p>
         </div>
 
-        <section
-          className="w-full h-fit p-5"
-        >
+        <section className="w-full h-fit p-5">
           <div>
             <h1 className="uppercase font-bold mb-2">Expériences</h1>
 
@@ -143,18 +182,21 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, 
                 <li key={index} className="step step-primary">
                   <div className="text-left">
                     <h2 className="flex text-md uppercase font-bold">
-                    <BriefcaseBusiness className="w-5" />
-                    <span className="ml-2">{exp.jobTitle}</span>
+                      <BriefcaseBusiness className="w-5" />
+                      <span className="ml-2">{exp.jobTitle}</span>
                     </h2>
                     <div className="text-sm my-2">
-                      <span className="badge badge-primary">{exp.companyName}</span>
-                      <span className="italic ml-2">{formatDate(exp.startDate)} au {formatDate(exp.endDate)}</span>
+                      <span className="badge badge-primary">
+                        {exp.companyName}
+                      </span>
+                      <span className="italic ml-2">
+                        {formatDate(exp.startDate)} au {formatDate(exp.endDate)}
+                      </span>
                     </div>
                     <p className="text-sm">{exp.description}</p>
                   </div>
                 </li>
-              ))
-              }
+              ))}
             </ul>
           </div>
 
@@ -166,19 +208,20 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, 
                 <li key={index} className="step step-primary">
                   <div className="text-left">
                     <h2 className="flex text-md uppercase font-bold">
-                    {/* <BriefcaseBusiness className="w-5" /> */}
-                    <GraduationCap className="w-5" />
-                    <span className="ml-2">{exp.degree}</span>
+                      {/* <BriefcaseBusiness className="w-5" /> */}
+                      <GraduationCap className="w-5" />
+                      <span className="ml-2">{exp.degree}</span>
                     </h2>
                     <div className="text-sm my-2">
                       <span className="badge badge-primary">{exp.school}</span>
-                      <span className="italic ml-2">{formatDate(exp.startDate)} au {formatDate(exp.endDate)}</span>
+                      <span className="italic ml-2">
+                        {formatDate(exp.startDate)} au {formatDate(exp.endDate)}
+                      </span>
                     </div>
                     <p className="text-sm">{exp.description}</p>
                   </div>
                 </li>
-              ))
-              }
+              ))}
             </ul>
           </div>
 
@@ -190,23 +233,26 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, 
                 <li key={index} className="step step-primary">
                   <div className="text-left">
                     <h2 className="flex text-md uppercase font-bold">
-                    {/* <BriefcaseBusiness className="w-5" /> */}
-                    <BookOpenCheck className="w-5" />
-                    <span className="ml-2">{cert.name}</span>
+                      {/* <BriefcaseBusiness className="w-5" /> */}
+                      <BookOpenCheck className="w-5" />
+                      <span className="ml-2">{cert.name}</span>
                     </h2>
                     <div className="text-sm my-2">
-                      <span className="badge badge-primary">{cert.organization}</span>
-                      <span className="italic ml-2">{formatDate(cert.startDate)} au {formatDate(cert.endDate)}</span>
+                      <span className="badge badge-primary">
+                        {cert.organization}
+                      </span>
+                      <span className="italic ml-2">
+                        {formatDate(cert.startDate)} au{" "}
+                        {formatDate(cert.endDate)}
+                      </span>
                     </div>
                     <p className="text-sm">{cert.description}</p>
                   </div>
                 </li>
-              ))
-              }
+              ))}
             </ul>
           </div>
         </section>
-
       </div>
     </div>
   );
