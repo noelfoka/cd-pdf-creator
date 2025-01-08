@@ -1,6 +1,6 @@
 "use client";
 
-import { Experience, PersonalDetails } from "@/type";
+import { Education, Experience, PersonalDetails } from "@/type";
 import React from "react";
 import Image from "next/image";
 import { BriefcaseBusiness, Mail, MapPinCheckInside, Phone } from "lucide-react";
@@ -10,6 +10,7 @@ type Props = {
   file: File | null;
   theme: string;
   experience: Experience[];
+  education: Education[];
 };
 
 function formatDate (dateString: string): string {
@@ -18,7 +19,7 @@ function formatDate (dateString: string): string {
   return date.toLocaleDateString("fr-FR", options);
 }
 
-const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience }) => {
+const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, education }) => {
   return (
     <div className={`flex p-16 w-[950px] h-[1200px] shadow-lg`} data-theme={theme}>
       <div className="flex flex-col w-1/3">

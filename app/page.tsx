@@ -178,6 +178,7 @@ export default function Home() {
                 file={file}
                 theme={theme}
                 experience={experience}
+                education={education}
               />
             </div>
           </div>
