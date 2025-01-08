@@ -146,13 +146,13 @@ const CVPreview: React.FC<Props> = ({
           <div className="mt-6">
             <h1 className="uppercase font-bold mb-2">Langues</h1>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col space-y-2">
               {language.map((lang, index) => (
                 <div key={index}>
-                  <span className="text-sm">
+                  <span className="capitalize font-semibold">
                     {lang.language}
                   </span>
-                  <div>
+                  <div className="flex mt-2">
                     {getStarRating(lang.proficiency)}
                   </div>
                 </div>
