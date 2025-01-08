@@ -1,4 +1,4 @@
-import { Education, Experience, Hobby, Language, PersonalDetails, Skill } from '@/type';
+import { Certification, Education, Experience, Hobby, Language, PersonalDetails, Skill } from '@/type';
 
 export const personalDetailsPreset: PersonalDetails = {
     fullName: 'John Doe',
@@ -38,8 +38,46 @@ export const educationsPreset: Education[] = [
         startDate: '2015-09-01',
         endDate: '2018-06-01',
         description: 'Spécialisation en développement web et bases de données.'
-    }
+    },
+    {
+      id: 'uuid-10',
+      degree: 'Licience en Informatique',
+      school: 'Edu',
+      startDate: '2015-09-01',
+      endDate: '2018-06-01',
+      description: 'Spécialisation en développement web et bases de données.'
+  }
 ];
+
+export const certificationPreset: Certification[] = [
+  {
+    id: 'uuid-11',
+    name: 'Certificat de compétence en développement web',
+    organization: 'Edu',
+    startDate: '2015-09-01',
+    endDate: '2018-06-01',
+    credential: 'Compétence en développement web',
+    description: 'Spécialisation en développement web et bases de données.'
+  },
+  {
+    id: 'uuid-12',
+    name: 'Certificat de compétence en développement mobile',
+    organization: 'Edu',
+    startDate: '2015-09-01',
+    endDate: '2018-06-01',
+    credential: 'Compétence en développement mobile',
+    description: 'Spécialisation en développement web et bases de données.'
+  },
+  {
+    id: 'uuid-13',
+    name: 'Certificat de compétence en développement backend',
+    organization: 'Edu',
+    startDate: '2015-09-01',
+    endDate: '2018-06-01',
+    credential: 'Compétence en développement backend',
+    description: 'Spécialisation en développement web et bases de données.'
+  }
+]
 
 export const skillsPreset: Skill[] = [
     { id: 'uuid-4', name: 'React.js' },
