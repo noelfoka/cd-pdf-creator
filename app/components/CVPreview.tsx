@@ -3,7 +3,7 @@
 import { Education, Experience, PersonalDetails } from "@/type";
 import React from "react";
 import Image from "next/image";
-import { BriefcaseBusiness, Mail, MapPinCheckInside, Phone } from "lucide-react";
+import { BriefcaseBusiness, GraduationCap, Mail, MapPinCheckInside, Phone } from "lucide-react";
 
 type Props = {
   personalDetails: PersonalDetails;
@@ -114,8 +114,32 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, 
               }
             </ul>
           </div>
+
+          <div className="mt-6">
+            <h1 className="uppercase font-bold mb-2">Education</h1>
+
+            <ul className="steps steps-vertical space-y-3">
+              {education.map((exp, index) => (
+                <li key={index} className="step step-primary">
+                  <div className="text-left">
+                    <h2 className="flex text-md uppercase font-bold">
+                    {/* <BriefcaseBusiness className="w-5" /> */}
+                    <GraduationCap className="w-5" />
+                    <span className="ml-2">{exp.school}</span>
+                    </h2>
+                    <div className="text-sm my-2">
+                      <span className="badge badge-primary">{exp.degree}</span>
+                      <span className="italic ml-2">{formatDate(exp.startDate)} au {formatDate(exp.endDate)}</span>
+                    </div>
+                    <p className="text-sm">{exp.description}</p>
+                  </div>
+                </li>
+              ))
+              }
+            </ul>
+          </div>
         </section>
-        
+
       </div>
     </div>
   );
