@@ -28,6 +28,16 @@ export type Education = {
   endDate: string;
 };
 
+export type Certification = {
+  id?: string;
+  name: string;
+  organization: string;
+  startDate: string;
+  endDate: string;
+  credential: string;
+  description: string;
+}
+
 export type Skill = {
   id?: string;
   name: string;

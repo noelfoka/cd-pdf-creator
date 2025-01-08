@@ -66,13 +66,12 @@ export default function Home() {
       postSeeking: "",
     });
 
-    const handleRestExperience = () => setExperience([]);
+  const handleRestExperience = () => setExperience([]);
 
   return (
     <div>
       <div className="hidden lg:block">
         <section className="flex items-center h-screen">
-
           <div className="w-1/3 h-full bg-base-200 p-10 scroolable no-scrollbar">
             <div className="mb-4 flex justify-between items-center">
               <h1 className="text-2xl font-bold italic">
@@ -119,6 +118,18 @@ export default function Home() {
                 experience={experience}
                 setExperience={setExperience}
               />
+
+              <div className="flex justify-between items-center">
+                <h1 className="badge badge-primary badge-outline">
+                  Educations
+                </h1>
+                <button
+                  className="btn btn-primary btn-sm"
+                  onClick={handleRestEducation}
+                >
+                  <RotateCw className="w-4" />
+                </button>
+              </div>
 
             </div>
           </div>
