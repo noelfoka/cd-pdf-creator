@@ -52,29 +52,29 @@ export const educationsPreset: Education[] = [
 export const certificationPreset: Certification[] = [
   {
     id: 'uuid-11',
-    name: 'Certificat de compétence en développement web',
+    name: 'développement web',
     organization: 'Edu',
     startDate: '2015-09-01',
     endDate: '2018-06-01',
-    credential: 'Compétence en développement web',
+    credential: 'développement web',
     description: 'Spécialisation en développement web et bases de données.'
   },
   {
     id: 'uuid-12',
-    name: 'Certificat de compétence en développement mobile',
+    name: 'développement mobile',
     organization: 'Edu',
     startDate: '2015-09-01',
     endDate: '2018-06-01',
-    credential: 'Compétence en développement mobile',
+    credential: 'développement mobile',
     description: 'Spécialisation en développement web et bases de données.'
   },
   {
     id: 'uuid-13',
-    name: 'Certificat de compétence en développement backend',
+    name: 'développement backend',
     organization: 'Edu',
     startDate: '2015-09-01',
     endDate: '2018-06-01',
-    credential: 'Compétence en développement backend',
+    credential: 'développement backend',
     description: 'Spécialisation en développement web et bases de données.'
   }
 ]
