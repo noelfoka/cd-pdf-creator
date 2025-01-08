@@ -4,8 +4,8 @@ import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import { useState } from "react";
-import { Experience, PersonalDetails } from "@/type";
-import { experiencesPreset, personalDetailsPreset } from "@/presets";
+import { Certification, Education, Experience, PersonalDetails } from "@/type";
+import { certificationPreset, educationsPreset, experiencesPreset, personalDetailsPreset } from "@/presets";
 import CVPreview from "./components/CVPreview";
 import ExperiencesForm from "./components/ExperiencesForm";
 
@@ -19,6 +19,8 @@ export default function Home() {
   const [theme, setTheme] = useState<string>("cupcake");
   const [zoom, setZoom] = useState<number>(163);
   const [experience, setExperience] = useState<Experience[]>(experiencesPreset);
+  const [education, setEducation] = useState<Education[]>(educationsPreset);
+  // const [certification, setCertification] = useState<Certification[]>(certificationPreset);
 
   const themes = [
     "light",
@@ -67,6 +69,7 @@ export default function Home() {
     });
 
   const handleRestExperience = () => setExperience([]);
+  const handleRestEducation = () => setEducation([]);
 
   return (
     <div>
