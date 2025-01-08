@@ -82,6 +82,19 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, 
               </li>
             </ul>
           </div>
+
+          <div className="mt-6">
+            <h1 className="uppercase font-bold mb-2">Langues</h1>
+
+            <div className="flex flex-col">
+              {language.map((lang, index) => (
+                <div key={index} className="flex justify-between">
+                  <div className="text-sm">{lang.language}</div>
+                  <div className="text-sm">{lang.proficiency}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
       </div>
