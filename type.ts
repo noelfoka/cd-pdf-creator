@@ -34,7 +34,7 @@ export type Certification = {
   organization: string;
   startDate: string;
   endDate: string;
-  credential: string;
+  credential?: string;
   description: string;
 }
 

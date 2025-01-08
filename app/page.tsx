@@ -4,11 +4,17 @@ import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import { useState } from "react";
-import { Education, Experience, PersonalDetails } from "@/type";
-import { educationsPreset, experiencesPreset, personalDetailsPreset } from "@/presets";
+import { Certification, Education, Experience, PersonalDetails } from "@/type";
+import {
+  certificationPreset,
+  educationsPreset,
+  experiencesPreset,
+  personalDetailsPreset,
+} from "@/presets";
 import CVPreview from "./components/CVPreview";
 import ExperiencesForm from "./components/ExperiencesForm";
 import EducationForm from "./components/EducationForm";
+import CertificationForm from "./components/CertificationForm";
 
 export default function Home() {
   // Variables d'etat
@@ -21,7 +27,8 @@ export default function Home() {
   const [zoom, setZoom] = useState<number>(163);
   const [experience, setExperience] = useState<Experience[]>(experiencesPreset);
   const [education, setEducation] = useState<Education[]>(educationsPreset);
-  // const [certification, setCertification] = useState<Certification[]>(certificationPreset);
+  const [certification, setCertification] =
+    useState<Certification[]>(certificationPreset);
 
   const themes = [
     "light",
@@ -71,6 +78,7 @@ export default function Home() {
 
   const handleRestExperience = () => setExperience([]);
   const handleRestEducation = () => setEducation([]);
+  const handleRestCertification = () => setCertification([]);
 
   return (
     <div>
@@ -139,6 +147,21 @@ export default function Home() {
                 setEducation={setEducation}
               />
 
+              <div className="flex justify-between items-center">
+                <h1 className="badge badge-primary badge-outline">
+                  Certification
+                </h1>
+                <button
+                  className="btn btn-primary btn-sm"
+                  onClick={handleRestCertification}
+                >
+                  <RotateCw className="w-4" />
+                </button>
+              </div>
+              <CertificationForm
+                certification={certification}
+                setCertification={setCertification}
+              />
             </div>
           </div>
 
@@ -179,6 +202,7 @@ export default function Home() {
                 theme={theme}
                 experience={experience}
                 education={education}
+                certification={certification}
               />
             </div>
           </div>
