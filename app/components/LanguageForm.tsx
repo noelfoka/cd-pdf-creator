@@ -1,5 +1,5 @@
 import { Language } from '@/type';
-import React from 'react'
+import React, { useState } from 'react'
 
 type Props = {
   language: Language[];
@@ -8,7 +8,7 @@ type Props = {
 
 const LanguageForm: React.FC<Props> = ({ language, setLanguage }) => {
 
-  const [newLanguage, setNewLanguage] = React.useState<Language>({
+  const [newLanguage, setNewLanguage] = useState<Language>({
     language: '',
     proficiency: ''
   });
