@@ -125,10 +125,10 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, 
                     <h2 className="flex text-md uppercase font-bold">
                     {/* <BriefcaseBusiness className="w-5" /> */}
                     <GraduationCap className="w-5" />
-                    <span className="ml-2">{exp.school}</span>
+                    <span className="ml-2">{exp.degree}</span>
                     </h2>
                     <div className="text-sm my-2">
-                      <span className="badge badge-primary">{exp.degree}</span>
+                      <span className="badge badge-primary">{exp.school}</span>
                       <span className="italic ml-2">{formatDate(exp.startDate)} au {formatDate(exp.endDate)}</span>
                     </div>
                     <p className="text-sm">{exp.description}</p>
