@@ -4,11 +4,12 @@ import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import { useState } from "react";
-import { Certification, Education, Experience, PersonalDetails } from "@/type";
+import { Certification, Education, Experience, Language, PersonalDetails } from "@/type";
 import {
   certificationPreset,
   educationsPreset,
   experiencesPreset,
+  languagesPreset,
   personalDetailsPreset,
 } from "@/presets";
 import CVPreview from "./components/CVPreview";
@@ -29,6 +30,7 @@ export default function Home() {
   const [education, setEducation] = useState<Education[]>(educationsPreset);
   const [certification, setCertification] =
     useState<Certification[]>(certificationPreset);
+    const [language, setLanguage] = useState<Language[]>(languagesPreset);
 
   const themes = [
     "light",
@@ -79,6 +81,7 @@ export default function Home() {
   const handleRestExperience = () => setExperience([]);
   const handleRestEducation = () => setEducation([]);
   const handleRestCertification = () => setCertification([]);
+  const handleRestLanguage = () => setLanguage([]);
 
   return (
     <div>
@@ -162,6 +165,18 @@ export default function Home() {
                 certification={certification}
                 setCertification={setCertification}
               />
+
+              <div className="flex justify-between items-center">
+                <h1 className="badge badge-primary badge-outline">
+                  Langues
+                </h1>
+                <button
+                  className="btn btn-primary btn-sm"
+                  onClick={handleRestLanguage}
+                >
+                  <RotateCw className="w-4" />
+                </button>
+              </div>
             </div>
           </div>
 
