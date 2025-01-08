@@ -4,10 +4,11 @@ import { Eye, RotateCw } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import { useState } from "react";
-import { Certification, Education, Experience, PersonalDetails } from "@/type";
-import { certificationPreset, educationsPreset, experiencesPreset, personalDetailsPreset } from "@/presets";
+import { Education, Experience, PersonalDetails } from "@/type";
+import { educationsPreset, experiencesPreset, personalDetailsPreset } from "@/presets";
 import CVPreview from "./components/CVPreview";
 import ExperiencesForm from "./components/ExperiencesForm";
+import EducationForm from "./components/EducationForm";
 
 export default function Home() {
   // Variables d'etat
@@ -133,6 +134,10 @@ export default function Home() {
                   <RotateCw className="w-4" />
                 </button>
               </div>
+              <EducationForm
+                education={education}
+                setEducation={setEducation}
+              />
 
             </div>
           </div>

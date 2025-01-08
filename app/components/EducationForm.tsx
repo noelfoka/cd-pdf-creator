@@ -1,15 +1,39 @@
-import { Education } from '@/type';
-import React from 'react'
+import { Education } from "@/type";
+import React from "react";
 
 type Props = {
   education: Education[];
   setEducation: (education: Education[]) => void;
 };
 
-const EducationForm : React.FC<Props> = ({ education, setEducation }) => {
-  return (
-    <div>EducationForm</div>
-  )
-}
+const EducationForm: React.FC<Props> = ({ education, setEducation }) => {
+  const [newEducation, setNewEducation] = React.useState<Education>({
+    degree: "",
+    school: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+  });
 
-export default EducationForm
+  const handleNewEducation = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    field: keyof Education
+  ) => {
+    setNewEducation({ ...newEducation, [field]: e.target.value });
+  };
+
+  const handleAddEducation = () => {
+    setEducation([...education, newEducation]);
+    setNewEducation({
+      degree: "",
+      school: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    });
+  };
+
+  return <div>EducationForm</div>;
+};
+
+export default EducationForm;
