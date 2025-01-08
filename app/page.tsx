@@ -220,6 +220,7 @@ export default function Home() {
                 experience={experience}
                 education={education}
                 certification={certification}
+                language={language}
               />
             </div>
           </div>
