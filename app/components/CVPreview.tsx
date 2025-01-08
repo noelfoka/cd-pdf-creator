@@ -3,7 +3,7 @@
 import { Certification, Education, Experience, Language, PersonalDetails } from "@/type";
 import React from "react";
 import Image from "next/image";
-import { BookOpenCheck, BriefcaseBusiness, GraduationCap, Mail, MapPinCheckInside, Phone } from "lucide-react";
+import { BookOpenCheck, BriefcaseBusiness, GraduationCap, Mail, MapPinCheckInside, Phone, Star } from "lucide-react";
 
 type Props = {
   personalDetails: PersonalDetails;
@@ -19,6 +19,32 @@ function formatDate (dateString: string): string {
   const date = new Date(dateString);
   const options: Intl.DateTimeFormatOptions = {day: "2-digit", month: "short", year: "numeric"};
   return date.toLocaleDateString("fr-FR", options);
+}
+
+const getStarRating = (proficiency: string) => {
+  let filledStars = 0;
+  const maxStars = 5;
+  switch (proficiency) {
+    case "Débutant":
+      return filledStars = 1;
+    case "Intermédiaire":
+      return filledStars = 3;
+    case "Avancé":
+      return filledStars = 5;
+    default:
+      return filledStars = 0;
+
+      return (
+        <>
+          {Array.from({length: filledStars}, (_, index) => (
+            <Star key={index} className="text-primary" />
+          ))}
+          {Array.from({length: maxStars - filledStars}, (_, index) => (
+            <Star key={index + filledStars} className="text-gray-300" />
+          ))}
+        </>
+      )
+  }
 }
 
 const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, education, certification, language }) => {
@@ -87,9 +113,9 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, 
             <h1 className="uppercase font-bold mb-2">Langues</h1>
 
             <div className="flex flex-col">
-              {language.map((lang, index) => (
-                <div key={index} className="flex justify-between">
-                  <div className="text-sm">{lang.language}</div>
+              {language.map((lang) => (
+                <div key={lang.id} className="flex justify-between">
+                  <span className="text-sm">{lang.language}</span>
                   <div className="text-sm">{lang.proficiency}</div>
                 </div>
               ))}
