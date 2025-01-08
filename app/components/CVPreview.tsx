@@ -115,6 +115,7 @@ const CVPreview: React.FC<Props> = ({ personalDetails, file, theme, experience, 
             </ul>
           </div>
         </section>
+        
       </div>
     </div>
   );
