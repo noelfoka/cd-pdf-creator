@@ -29,7 +29,6 @@ export default function Home() {
   const [personalDetails, setPersonalDetails] = useState<PersonalDetails>(
     personalDetailsPreset
   );
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [file, setFile] = useState<File | null>(null);
   const [theme, setTheme] = useState<string>("cupcake");
   const [zoom, setZoom] = useState<number>(163);
@@ -44,7 +43,7 @@ export default function Home() {
     fetch(defaulImageUrl)
       .then((response) => response.blob())
       .then((blob) => {
-        const defaultFile = new File([blob], "photo1.jpg");
+        const defaultFile = new File([blob], "photo1.jpg", {type: blob.type});
         setFile(defaultFile);
       });
   }, []);
