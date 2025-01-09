@@ -3,7 +3,7 @@
 import { Eye, RotateCw, Save } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Certification,
   Education,
@@ -29,6 +29,7 @@ import CertificationForm from "./components/CertificationForm";
 import LanguageForm from "./components/LanguageForm";
 import SkillsForm from "./components/SkillsForm";
 import HobbyForm from "./components/HobbyForm";
+import html2canvas from "html2canvas-pro";
 
 export default function Home() {
   // Variables d'etat
@@ -101,6 +102,24 @@ export default function Home() {
       description: "",
       postSeeking: "",
     });
+
+    const cvPreviewref = useRef(null);
+    const handleDownloadPdf = async () => {
+      const element = cvPreviewref.current;
+      if(element) {
+        try {
+          // convertir html en canva
+          const canvas = await html2canvas(element, {
+            scale: 3,
+            width: element.scrollWidth,
+            height: element.scrollHeight,
+          });
+          
+        } catch (error) {
+          console.error("Erreur lors de la génération du pdf", error);
+        }
+      }
+    }
 
   const handleRestExperience = () => setExperience([]);
   const handleRestEducation = () => setEducation([]);
