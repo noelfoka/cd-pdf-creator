@@ -30,6 +30,7 @@ import LanguageForm from "./components/LanguageForm";
 import SkillsForm from "./components/SkillsForm";
 import HobbyForm from "./components/HobbyForm";
 import html2canvas from "html2canvas-pro";
+import jsPDF from "jspdf";
 
 export default function Home() {
   // Variables d'etat
@@ -111,9 +112,34 @@ export default function Home() {
           // convertir html en canva
           const canvas = await html2canvas(element, {
             scale: 3,
-            width: element.scrollWidth,
-            height: element.scrollHeight,
+            useCORS: true,
           });
+
+          //recuperer l'image
+          const imgData = canvas.toDataURL("image/png");
+          // Creer un pdf
+          const pdf = new jsPDF({
+            orientation: "portrait",
+            unite: "mm",
+            format: "A4"
+          })
+
+          // Définir la largeur du pdf
+          const pdfWidht = pdf.internal.pageSize.getWidth();
+
+          // Définir la hauteur du pdf
+          const pdfHeight = (canvas.height * pdfWidht) / canvas.width;
+
+          // generation de l'image
+          pdf.addImage(imgData, "PNG", 0, 0, pdfWidht, pdfHeight);
+
+          pdf.save(`cv.pdf`)
+
+          const modal = document.getElementById("my_modal_3") as HTMLDialogElement;
+
+          if (modal) {
+            modal.close();
+          }
           
         } catch (error) {
           console.error("Erreur lors de la génération du pdf", error);
