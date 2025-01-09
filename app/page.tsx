@@ -198,16 +198,22 @@ export default function Home() {
               </div>
               <LanguageForm language={language} setLanguage={setLanguage} />
 
-              <div className="flex justify-between items-center">
-                <h1 className="badge badge-primary badge-outline">Compétences</h1>
-                <button
-                  className="btn btn-primary btn-sm"
-                  onClick={handleRestSkills}
-                >
-                  <RotateCw className="w-4" />
-                </button>
+              <div className="flex justify-between">
+                <div className="w-1/2">
+                  <div className="flex justify-between items-center">
+                    <h1 className="badge badge-primary badge-outline">
+                      Compétences
+                    </h1>
+                    <button
+                      className="btn btn-primary btn-sm"
+                      onClick={handleRestSkills}
+                    >
+                      <RotateCw className="w-4" />
+                    </button>
+                  </div>
+                  <SkillsForm skills={skills} setSkills={setSkills} />
+                </div>
               </div>
-              <SkillsForm skills={skills} setSkills={setSkills} />
             </div>
           </div>
 

@@ -165,7 +165,7 @@ const CVPreview: React.FC<Props> = ({
           <div className="mt-6">
             <h1 className="uppercase font-bold mb-2">Compétences</h1>
 
-            <div className="flex space-x-1 flex-wrap">
+            <div className="flex flex-col space-y-2">
               {skills.map((skill, index) => (
                 <div key={index}>
                   <span className="capitalize font-semibold">
