@@ -8,6 +8,7 @@ import {
   Certification,
   Education,
   Experience,
+  Hobby,
   Language,
   PersonalDetails,
   Skill,
@@ -16,6 +17,7 @@ import {
   certificationPreset,
   educationsPreset,
   experiencesPreset,
+  hobbiesPreset,
   languagesPreset,
   personalDetailsPreset,
   skillsPreset,
@@ -41,6 +43,7 @@ export default function Home() {
     useState<Certification[]>(certificationPreset);
   const [language, setLanguage] = useState<Language[]>(languagesPreset);
   const [skills, setSkills] = useState<Skill[]>(skillsPreset);
+  const [hobbies, setHobbies] = useState<Hobby[]>(hobbiesPreset);
 
   useEffect(() => {
     const defaulImageUrl = "/photo1.jpg";
@@ -103,6 +106,7 @@ export default function Home() {
   const handleRestCertification = () => setCertification([]);
   const handleRestLanguage = () => setLanguage([]);
   const handleRestSkills = () => setSkills([]);
+  const handleRestHobbies = () => setHobbies([]);
 
   return (
     <div>
@@ -212,6 +216,21 @@ export default function Home() {
                     </button>
                   </div>
                   <SkillsForm skills={skills} setSkills={setSkills} />
+                </div>
+
+                <div className="w-1/2">
+                  <div className="flex justify-between items-center ">
+                    <h1 className="badge badge-primary badge-outline">
+                      Hobies
+                    </h1>
+                    <button
+                      className="btn btn-primary btn-sm"
+                      onClick={handleRestHobbies}
+                    >
+                      <RotateCw className="w-4" />
+                    </button>
+                  </div>
+                  <HobbyForm hobbies={hobbies} setHobbies={setHobbies} />
                 </div>
               </div>
             </div>
