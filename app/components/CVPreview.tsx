@@ -32,6 +32,7 @@ type Props = {
   skills: Skill[];
   hobies: Hobby[];
   download?: boolean;
+  ref?: React.MutableRefObject<HTMLDivElement | null>;
 };
 
 function formatDate(dateString: string): string {
@@ -85,10 +86,12 @@ const CVPreview: React.FC<Props> = ({
   language,
   skills,
   hobies,
-  download
+  download,
+  ref
 }) => {
   return (
     <div
+    ref={ref}
       className={`flex p-16 w-[950px] h-[1200px] shadow-lg ${download ? "mb-10" : ""}`}
       data-theme={theme}
     >

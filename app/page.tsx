@@ -121,7 +121,7 @@ export default function Home() {
           // Creer un pdf
           const pdf = new jsPDF({
             orientation: "portrait",
-            unite: "mm",
+            unit: "mm",
             format: "A4"
           })
 
@@ -141,6 +141,13 @@ export default function Home() {
           if (modal) {
             modal.close();
           }
+
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            zIndex: 9999
+          })
           
         } catch (error) {
           console.error("Erreur lors de la génération du pdf", error);
@@ -362,7 +369,7 @@ export default function Home() {
             </form>
             <div className="mt-5">
               <div className="flex justify-end mb-5">
-                <button className="btn btn-primary">
+                <button className="btn btn-primary" onClick={handleDownloadPdf}>
                   Telecharger
                   <Save className="w-4" />
                 </button>
@@ -381,6 +388,7 @@ export default function Home() {
                     skills={skills}
                     hobies={hobbies}
                     download={true}
+                    ref={cvPreviewref}
                   />
                 </div>
               </div>
