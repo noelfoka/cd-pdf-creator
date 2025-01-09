@@ -119,9 +119,19 @@ export default function Home() {
                 CV
                 <span className="text-primary">Ppros</span>
               </h1>
-              <button className="btn btn-primary">
+              {/*<button className="btn btn-primary">
                 Prévisualisez
                 <Eye className="w-4" />
+              </button>*/}
+              <button
+                className="btn btn-primary"
+                onClick={() =>
+                  (
+                    document.getElementById("my_modal_3") as HTMLDialogElement
+                  ).showModal()
+                }
+              >
+                Prévisualisez
               </button>
             </div>
 
@@ -286,10 +296,15 @@ export default function Home() {
         {/* You can open the modal using document.getElementById('ID').showModal() method */}
         <button
           className="btn"
-          onClick={() => (document.getElementById("my_modal_3") as HTMLDialogElement).showModal()}
+          onClick={() =>
+            (
+              document.getElementById("my_modal_3") as HTMLDialogElement
+            ).showModal()
+          }
         >
           open modal
         </button>
+
         <dialog id="my_modal_3" className="modal">
           <div className="modal-box">
             <form method="dialog">
