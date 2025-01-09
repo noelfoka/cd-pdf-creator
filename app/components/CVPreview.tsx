@@ -6,6 +6,7 @@ import {
   Experience,
   Language,
   PersonalDetails,
+  Skill,
 } from "@/type";
 import React from "react";
 import Image from "next/image";
@@ -27,6 +28,7 @@ type Props = {
   education: Education[];
   certification: Certification[];
   language: Language[];
+  skills: Skill[];
 };
 
 function formatDate(dateString: string): string {
@@ -79,6 +81,7 @@ const CVPreview: React.FC<Props> = ({
   education,
   certification,
   language,
+  skills
 }) => {
   return (
     <div
@@ -159,6 +162,7 @@ const CVPreview: React.FC<Props> = ({
               ))}
             </div>
           </div>
+          <div className="mt-6"></div>
         </div>
       </div>
 

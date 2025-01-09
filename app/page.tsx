@@ -250,6 +250,7 @@ export default function Home() {
                 education={education}
                 certification={certification}
                 language={language}
+                skills={skills}
               />
             </div>
           </div>

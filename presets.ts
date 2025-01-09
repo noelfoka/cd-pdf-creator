@@ -72,7 +72,10 @@ export const certificationPreset: Certification[] = [
 
 export const skillsPreset: Skill[] = [
     { id: 'uuid-4', name: 'React.js' },
-    { id: 'uuid-5', name: 'Node.js' }
+    { id: 'uuid-5', name: 'Node.js' },
+    { id: 'uuid-6', name: 'Java' },
+    { id: 'uuid-7', name: 'Next.js' },
+    { id: 'uuid-8', name: 'Python' },
 ];
 
 export const languagesPreset: Language[] = [
