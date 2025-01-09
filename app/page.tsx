@@ -205,7 +205,7 @@ export default function Home() {
 
               <div className="flex justify-between">
                 <div className="w-1/2">
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mb-4">
                     <h1 className="badge badge-primary badge-outline">
                       Compétences
                     </h1>
@@ -219,10 +219,10 @@ export default function Home() {
                   <SkillsForm skills={skills} setSkills={setSkills} />
                 </div>
 
-                <div className="w-1/2">
-                  <div className="flex justify-between items-center ">
+                <div className="w-1/2 ml-4">
+                  <div className="flex justify-between items-center mb-4 ">
                     <h1 className="badge badge-primary badge-outline">
-                      Hobies
+                      Loisirs
                     </h1>
                     <button
                       className="btn btn-primary btn-sm"

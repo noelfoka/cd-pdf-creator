@@ -30,13 +30,15 @@ const SkillsForm: React.FC<Props> = ({ skills, setSkills }) => {
 
   return (
     <div className="space-y-4">
-      <input
-        type="text"
-        value={newSkill.name}
-        onChange={(e) => handleNewSkill(e, "name")}
-        placeholder="Compétence"
-        className="input input-bordered w-full"
-      />
+      <div>
+        <input
+          type="text"
+          value={newSkill.name}
+          onChange={(e) => handleNewSkill(e, "name")}
+          placeholder="Compétence"
+          className="input input-bordered w-full"
+        />
+      </div>
 
       <button className="btn btn-primary mt-4" onClick={handleAddSkill}>
         Ajouter
