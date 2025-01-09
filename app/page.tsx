@@ -43,7 +43,7 @@ export default function Home() {
     fetch(defaulImageUrl)
       .then((response) => response.blob())
       .then((blob) => {
-        const defaultFile = new File([blob], "photo1.jpg", {type: blob.type});
+        const defaultFile = new File([blob], "photo1.jpg", { type: blob.type });
         setFile(defaultFile);
       });
   }, []);
@@ -192,6 +192,16 @@ export default function Home() {
                 </button>
               </div>
               <LanguageForm language={language} setLanguage={setLanguage} />
+
+              <div className="flex justify-between items-center">
+                <h1 className="badge badge-primary badge-outline">Compétences</h1>
+                <button
+                  className="btn btn-primary btn-sm"
+                  onClick={handleRestSkills}
+                >
+                  <RotateCw className="w-4" />
+                </button>
+              </div>
             </div>
           </div>
 
