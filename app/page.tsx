@@ -31,6 +31,7 @@ import SkillsForm from "./components/SkillsForm";
 import HobbyForm from "./components/HobbyForm";
 import html2canvas from "html2canvas-pro";
 import jsPDF from "jspdf";
+import confetti from "canvas-confetti";
 
 export default function Home() {
   // Variables d'etat
