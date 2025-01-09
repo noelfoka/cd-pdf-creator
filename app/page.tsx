@@ -28,6 +28,7 @@ import EducationForm from "./components/EducationForm";
 import CertificationForm from "./components/CertificationForm";
 import LanguageForm from "./components/LanguageForm";
 import SkillsForm from "./components/SkillsForm";
+import HobbyForm from "./components/HobbyForm";
 
 export default function Home() {
   // Variables d'etat
