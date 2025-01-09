@@ -74,7 +74,6 @@ const getStarRating = (proficiency: string) => {
   );
 };
 
-
 const CVPreview: React.FC<Props> = ({
   personalDetails,
   file,
@@ -155,23 +154,7 @@ const CVPreview: React.FC<Props> = ({
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, index) => (
                 <p key={index} className="badge badge-primary uppercase">
-                  
-                    {skill.name}
-
-                </p>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <h1 className="uppercase font-bold mb-2">Loisirs</h1>
-
-            <div className="flex flex-wrap gap-2">
-              {hobies.map((hobby, index) => (
-                <p key={index} className="badge badge-primary uppercase">
-                  
-                    {hobby.name}
-
+                  {skill.name}
                 </p>
               ))}
             </div>
@@ -189,6 +172,18 @@ const CVPreview: React.FC<Props> = ({
                   <div className="flex mt-2">
                     {getStarRating(lang.proficiency)}
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6">
+            <h1 className="uppercase font-bold mb-2">Loisirs</h1>
+
+            <div className="flex flex-col space-y-2">
+              {hobies.map((hobby, index) => (
+                <div key={index}>
+                  <span className="capitalize">{hobby.name}</span>
                 </div>
               ))}
             </div>
