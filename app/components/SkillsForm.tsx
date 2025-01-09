@@ -1,15 +1,49 @@
-import { Skill } from '@/type';
-import React from 'react'
+import { Skill } from "@/type";
+import { Plus } from "lucide-react";
+import React from "react";
 
 type Props = {
   skills: Skill[];
   setSkills: (skills: Skill[]) => void;
-}
+};
 
 const SkillsForm: React.FC<Props> = ({ skills, setSkills }) => {
-  return (
-    <div>SkillsForm</div>
-  )
-}
+  const [newSkill, setNewSkill] = React.useState<Skill>({
+    id: "",
+    name: "",
+  });
 
-export default SkillsForm
+  const handleNewSkill = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    field: keyof Skill
+  ) => {
+    setNewSkill({ ...newSkill, [field]: e.target.value });
+  };
+
+  const handleAddSkill = () => {
+    setSkills([...skills, newSkill]);
+    setNewSkill({
+      id: "",
+      name: "",
+    });
+  };
+
+  return (
+    <div className="space-y-4">
+      <input
+        type="text"
+        value={newSkill.name}
+        onChange={(e) => handleNewSkill(e, "name")}
+        placeholder="Compétence"
+        className="input input-bordered w-full"
+      />
+
+      <button className="btn btn-primary mt-4" onClick={handleAddSkill}>
+        Ajouter
+        <Plus className="w-4" />
+      </button>
+    </div>
+  );
+};
+
+export default SkillsForm;
