@@ -25,6 +25,7 @@ import ExperiencesForm from "./components/ExperiencesForm";
 import EducationForm from "./components/EducationForm";
 import CertificationForm from "./components/CertificationForm";
 import LanguageForm from "./components/LanguageForm";
+import SkillsForm from "./components/SkillsForm";
 
 export default function Home() {
   // Variables d'etat
@@ -206,6 +207,7 @@ export default function Home() {
                   <RotateCw className="w-4" />
                 </button>
               </div>
+              <SkillsForm skills={skills} setSkills={setSkills} />
             </div>
           </div>
 
