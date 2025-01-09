@@ -10,6 +10,7 @@ import {
   Experience,
   Language,
   PersonalDetails,
+  Skill,
 } from "@/type";
 import {
   certificationPreset,
@@ -17,6 +18,7 @@ import {
   experiencesPreset,
   languagesPreset,
   personalDetailsPreset,
+  skillsPreset,
 } from "@/presets";
 import CVPreview from "./components/CVPreview";
 import ExperiencesForm from "./components/ExperiencesForm";
@@ -37,6 +39,7 @@ export default function Home() {
   const [certification, setCertification] =
     useState<Certification[]>(certificationPreset);
   const [language, setLanguage] = useState<Language[]>(languagesPreset);
+  const [skills, setSkills] = useState<Skill[]>(skillsPreset);
 
   useEffect(() => {
     const defaulImageUrl = "/photo1.jpg";
@@ -98,6 +101,7 @@ export default function Home() {
   const handleRestEducation = () => setEducation([]);
   const handleRestCertification = () => setCertification([]);
   const handleRestLanguage = () => setLanguage([]);
+  const handleRestSkills = () => setSkills([]);
 
   return (
     <div>
