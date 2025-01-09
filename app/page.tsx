@@ -1,6 +1,6 @@
 "use client";
 
-import { Eye, RotateCw } from "lucide-react";
+import { Eye, RotateCw, Save } from "lucide-react";
 import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import { useEffect, useState } from "react";
@@ -314,18 +314,30 @@ export default function Home() {
                 ✕
               </button>
             </form>
-            <div>
-              <CVPreview
-                personalDetails={personalDetails}
-                file={file}
-                theme={theme}
-                experience={experience}
-                education={education}
-                certification={certification}
-                language={language}
-                skills={skills}
-                hobies={hobbies}
-              />
+            <div className="mt-5">
+              <div className="flex justify-end mb-5">
+                <button className="btn btn-primary">
+                  Telecharger
+                  <Save className="w-4" />
+                </button>
+              </div>
+
+              <div className="w-full max-w-full overflow-auto">
+                <div className="w-full max-w-full flex justify-center items-center">
+                  <CVPreview
+                    personalDetails={personalDetails}
+                    file={file}
+                    theme={theme}
+                    experience={experience}
+                    education={education}
+                    certification={certification}
+                    language={language}
+                    skills={skills}
+                    hobies={hobbies}
+                    download={true}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </dialog>

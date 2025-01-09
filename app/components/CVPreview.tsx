@@ -31,6 +31,7 @@ type Props = {
   language: Language[];
   skills: Skill[];
   hobies: Hobby[];
+  download?: boolean;
 };
 
 function formatDate(dateString: string): string {
@@ -84,10 +85,11 @@ const CVPreview: React.FC<Props> = ({
   language,
   skills,
   hobies,
+  download
 }) => {
   return (
     <div
-      className={`flex p-16 w-[950px] h-[1200px] shadow-lg`}
+      className={`flex p-16 w-[950px] h-[1200px] shadow-lg ${download ? "mb-10" : ""}`}
       data-theme={theme}
     >
       <div className="flex flex-col w-1/3">
