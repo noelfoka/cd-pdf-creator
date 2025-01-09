@@ -92,7 +92,7 @@ const CVPreview: React.FC<Props> = ({
   return (
     <div
     ref={ref}
-      className={`flex p-16 w-[950px] h-[1200px] shadow-lg ${download ? "mb-10" : ""}`}
+      className={`flex p-16 w-[950px] h-full shadow-lg ${download ? "mb-10" : ""}`}
       data-theme={theme}
     >
       <div className="flex flex-col w-1/3">
