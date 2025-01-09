@@ -4,6 +4,7 @@ import {
   Certification,
   Education,
   Experience,
+  Hobby,
   Language,
   PersonalDetails,
   Skill,
@@ -29,6 +30,7 @@ type Props = {
   certification: Certification[];
   language: Language[];
   skills: Skill[];
+  hobies: Hobby[];
 };
 
 function formatDate(dateString: string): string {
@@ -81,7 +83,8 @@ const CVPreview: React.FC<Props> = ({
   education,
   certification,
   language,
-  skills
+  skills,
+  hobies,
 }) => {
   return (
     <div
@@ -147,6 +150,34 @@ const CVPreview: React.FC<Props> = ({
           </div>
 
           <div className="mt-6">
+            <h1 className="uppercase font-bold mb-2">Compétences</h1>
+
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill, index) => (
+                <p key={index} className="badge badge-primary uppercase">
+                  
+                    {skill.name}
+
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6">
+            <h1 className="uppercase font-bold mb-2">Loisirs</h1>
+
+            <div className="flex flex-wrap gap-2">
+              {hobies.map((hobby, index) => (
+                <p key={index} className="badge badge-primary uppercase">
+                  
+                    {hobby.name}
+
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6">
             <h1 className="uppercase font-bold mb-2">Langues</h1>
 
             <div className="flex flex-col space-y-2">
@@ -162,19 +193,7 @@ const CVPreview: React.FC<Props> = ({
               ))}
             </div>
           </div>
-          <div className="mt-6">
-            <h1 className="uppercase font-bold mb-2">Compétences</h1>
 
-            <div className="flex flex-col space-y-2">
-              {skills.map((skill, index) => (
-                <div key={index}>
-                  <span className="capitalize font-semibold">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 

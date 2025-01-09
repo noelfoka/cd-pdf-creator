@@ -277,6 +277,7 @@ export default function Home() {
                 certification={certification}
                 language={language}
                 skills={skills}
+                hobies={hobbies}
               />
             </div>
           </div>
